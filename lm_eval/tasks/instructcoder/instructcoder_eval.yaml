@@ -1,0 +1,17 @@
+task: instructcoder
+dataset_path: likaixin/InstructCoder
+dataset_name: null
+training_split: train
+validation_split: validation
+test_split: null
+doc_to_text: "Input: {{input}} \n\nInstruction: {{instruction}} \n\nOutput:\n"
+doc_to_target: " {{output}}"
+target_delimiter: ""
+output_type: generate_until
+generation_kwargs:
+  # repetition_penalty: 1.00
+  max_new_tokens: 4096
+metric_list:
+  - metric: bleu
+    aggregation: bleu
+    higher_is_better: true
